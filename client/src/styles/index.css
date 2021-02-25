@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .w-473 {
+    width: 473.83px;
+  }
+  .h-637 {
+    height: 634.3px;
+  }
+  .w-318 {
+    width: 318.88px;
+  }
+  .bg-blue-1 {
+    --tw-bg-opacity: 1;
+    background-color: #2f80ed;
+  }
+  .font-1 {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.035em;
+  }
+  .font-2 {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.035em;
+    color: #333333;
+  }
+  .font-3 {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: -0.035em;
+    color: #333333;
+  }
+}
