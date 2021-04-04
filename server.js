@@ -8,7 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const passport = require('passport');
 const fileupload = require("express-fileupload");
-const connectDB = require('./server/config/dbconfig');
+const connectDB = require('./server/config/dbConfig');
 
 dotenv.config({ path: './server/config/config.env' });
 const app = express();
