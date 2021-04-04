@@ -15,8 +15,10 @@ const app = express();
 
 app.use(express.json());
 app.use(cors())
-app.use(helmet());
 app.use(fileupload());
+app.use(helmet({ contentSecurityPolicy: false }) );
+app.use(xss());
+app.use(hpp());
 
 //express session middleware
 app.use(
