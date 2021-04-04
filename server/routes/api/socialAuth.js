@@ -1,7 +1,5 @@
 const express = require('express');
 const passport = require('passport');
-const session = require('express-session');
-
 const router = express.Router({ mergeParams: true });
 
 let CLIENT_PAGE_URL, SOCIAL_LOGIN_URL;
@@ -14,7 +12,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 router.get('/facebook', passport.authenticate('facebook'));
-
 router.get('/facebook/callback',passport.authenticate('facebook', { failureRedirect: CLIENT_PAGE_URL}),
   function (req, res) {    
    res.redirect(SOCIAL_LOGIN_URL + req.user.socialID);
