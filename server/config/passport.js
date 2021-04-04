@@ -40,7 +40,7 @@ module.exports = (passport) => {
 	passport.use(new FacebookStrategy({
 		clientID: process.env.FACEBOOK_CLIENT_ID,
 	    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-		callbackURL: 'http://localhost:5600/api/socalAuths/facebook/callback',
+		callbackURL: 'https://authenticate-dev-app.herokuapp.com/api/socalAuths/facebook/callback',
 		profileFields: ['email', 'displayName', 'photos'],
 		passReqToCallback: true	
 	},
@@ -52,7 +52,7 @@ module.exports = (passport) => {
     ));
 /** End of facebook **/	
 
-/** for goole **/	
+/** for google **/	
 	passport.use(new GoogleStrategy({
 		clientID: process.env.FACEBOOK_CLIENT_ID,
 	    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,

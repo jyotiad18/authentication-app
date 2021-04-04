@@ -6,8 +6,8 @@ const router = express.Router({ mergeParams: true });
 
 let CLIENT_PAGE_URL, SOCIAL_LOGIN_URL;
 if (process.env.NODE_ENV === 'production') {
-	CLIENT_PAGE_URL = '';
-	SOCIAL_LOGIN_URL = '';
+	CLIENT_PAGE_URL = 'https://authenticate-dev-app.herokuapp.com/';
+	SOCIAL_LOGIN_URL = 'https://authenticate-dev-app.herokuapp.com/sociallogin/';
 } else {
 	CLIENT_PAGE_URL = 'http://localhost:3000/';
 	SOCIAL_LOGIN_URL = 'http://localhost:3000/socallogin/';

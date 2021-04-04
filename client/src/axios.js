@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5600/api",
+  baseURL: "https://authenticate-dev-app.herokuapp.com/api",
 });
 
 export default instance;
