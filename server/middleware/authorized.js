@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { Response } = require("../utils/Response");
+const { Response } = require("../utils/response");
 
 // Protect routes
 exports.protect = async (req, res, next) => {	
