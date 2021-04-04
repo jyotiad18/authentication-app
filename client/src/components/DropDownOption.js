@@ -14,12 +14,12 @@ const DropDownOptionContainer = styled.div`
 		font-size: 12px;
 		line-height: 16px;
 		letter-spacing: -0.035em;				
-	}
+	}	
 `;
 
-function DropDownOption({ Icon, title }) {
+function DropDownOption({ Icon, title, onClickHandler }) {
 	return (	
-		<DropDownOptionContainer>
+		<DropDownOptionContainer onClick={ () => onClickHandler(title) }>
 			{Icon}
 			<span>{title}</span>
 		</DropDownOptionContainer>				

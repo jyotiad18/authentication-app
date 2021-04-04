@@ -28,7 +28,19 @@ const PersonalInfoOptionContainer = styled.div`
 		height: 72px;
 		width: 72px;
 		border-radius: 8px;
+		border: 1px solid #000;
+		padding: 2px;
 	}
+	@media (max-width: 640px) {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 15px;
+		gap: 10px;
+		>h4 {
+			width: auto;
+		}
+	}
+
 `;
 
 function PersonalInfoOption({ title, value }) {

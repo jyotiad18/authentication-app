@@ -25,16 +25,45 @@ const PersonalInfoContainer = styled.div`
 		line-height: 25px;		
 		letter-spacing: -0.035em;
 	}
+	@media (max-width: 640px) {
+		>h3 {
+			font-size: 26px;
+			line-height: 30px;
+		}
+		>h5 {
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+	@media (max-width: 320px) {
+		>h3 {
+			font-size: 26px;
+			line-height: 30px;
+		}
+		>h5 {
+			font-size: 12px;
+			line-height: 15px;
+		}
+	}
 `;
-
 const PersonalDetail = styled.div`
 	border: 1px solid #E0E0E0;	
 	border-radius: 12px;
 	width: 800px;	
 	display: flex;
 	flex-direction: column;
-`;
+	
+	@media (max-width: 768px) {
+		width: 650px;	
+	}
+	@media (max-width: 640px) {
+		width:350px;
+	}
 
+	@media (max-width: 320px) {
+		width:300px;
+	}
+`;
 const PersonalDetailEdit = styled.div`
    display: flex;
    justify-content: space-between;
@@ -53,8 +82,14 @@ const PersonalDetailEdit = styled.div`
 		color: #828282;
 		outline: none;
    }
+     @media (max-width: 640px) {
+		padding: 10px;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 10px;
+	}
 `;
-
 const ProfileHeader = styled.div`
    display: flex;
    flex-direction: column;
@@ -75,7 +110,7 @@ const ProfileHeader = styled.div`
   }  
 `;
 
-function PersonalInfo({ onToggleEdit }) {
+function PersonalInfo({ onToggleEdit, formik }) {
 	return (
 		<PersonalInfoContainer>	
 			<h3>Personal info</h3>
@@ -88,11 +123,11 @@ function PersonalInfo({ onToggleEdit }) {
 					</ProfileHeader>
 					<button onClick={() => { onToggleEdit(); } }>Edit</button>
 				</PersonalDetailEdit>
-				<PersonalInfoOption title={'photo'} />
-				<PersonalInfoOption title={'Name'} value={'Xanthe Neal'} />
-				<PersonalInfoOption title={'Bio'} value={'I am a software developer and a big fan of devchallenges...'} />	
-				<PersonalInfoOption title={'phone'} value={'068957548'} />	
-				<PersonalInfoOption title={'Email'} value={'email@email.com'} />	
+				<PersonalInfoOption title={'photo'} value={formik.values.imageUrl} />
+				<PersonalInfoOption title={'Name'} value={formik.values.name} />
+				<PersonalInfoOption title={'Bio'} value={formik.values.bio} />	
+				<PersonalInfoOption title={'phone'} value={formik.values.phone} />	
+				<PersonalInfoOption title={'Email'} value={formik.values.email} />	
 				<PersonalInfoOption title={'Password'} value={'**********'} />	
 			</PersonalDetail>							
 	   </PersonalInfoContainer>		

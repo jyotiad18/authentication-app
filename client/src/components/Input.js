@@ -30,27 +30,55 @@ const InputSection = styled.div`
 	font-size: 16px;
 	line-height: 22px;
 	letter-spacing: -0.035em;
-	background-color: none;
+	background-color: none
   }
 `;
+const ErrorSection = styled.div`
+  display: flex;
+  border-radius: 8px; 
+  padding: 5px; 
+  font-family: Noto Sans; 
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+  color: red;
+ `;
 
-function Input({type, placeHolder, Icons, label, value }) {
+function Input({ type, placeHolder, Icons, label, name,
+	dataValue,
+	onInputChangeHandler,
+	errors
+}) {		
 	return (
 		<InputContainer>
-			<label forHtml={label}>{ label }</label>
+			<label forhtml={label}>{ label }</label>
 			<InputSection>
 				{Icons}	
 				{
 					type === 'textarea' ? 
 						<textarea
-							placeHolder={placeHolder}
-							id={label}							
-							name={ label }
-							rows="4" />							
+							placeholder={placeHolder}
+							id={name}							
+							name={name}
+							rows="4"
+							value={ dataValue }
+							onChange={onInputChangeHandler}
+					    />
 						:
-						<input type={type} placeHolder={placeHolder} id={label} name={ label }/>	
+						<input type={type}
+							placeholder={placeHolder}
+							id={name}
+							name={name}
+							value={dataValue}
+							onChange={onInputChangeHandler}
+							autoComplete={type === 'password' ? 'current-password' : ''}
+						/>						  
 				}				
-			</InputSection>						
+			</InputSection>	
+			{errors ? 
+				<ErrorSection>{ errors }</ErrorSection>
+			: null}
 		</InputContainer>		
 	)
 }

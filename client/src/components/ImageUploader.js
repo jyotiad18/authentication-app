@@ -32,6 +32,7 @@ const ImageContainer = styled.div`
 const ImageLayer = styled.div`
    display: flex;
    position: absolute;
+   flex-direction: column;
    z-index: 1;
    background: rgba(20, 20, 20, 0.45);
    border-radius: 16px;
@@ -39,19 +40,36 @@ const ImageLayer = styled.div`
    height: 72px;
    justify-content: center;
    align-items: center;
-   color: #fff;   
+   color: #fff;  
+   padding-top:20px; 
+   cursor: pointer;  
+   >input {
+	   opacity: 0;	  
+	   z-index: -999; 
+	   cursor: pointer;
+   } 
+   >span {
+	   cursor: pointer;
+   }
 `;
 
-function ImageUploader() {
+function ImageUploader({ imageUrl, onChangeHandler, layOver}) {
+		
 	return (	
 		<ImageUploaderContainer>
-			<ImageContainer>
-				<img src={profilePict} alt="" />
-				<ImageLayer>
-					<PhotoCameraIcon />
-				</ImageLayer>
+			<ImageContainer>				
+				<img src={imageUrl ? imageUrl : profilePict} alt="" />
+				{layOver ?
+					<ImageLayer>
+						<PhotoCameraIcon />
+						<input type='file' accept='image/*'
+							id="fileupload" name="fileupload"
+							onChange={() => onChangeHandler()}
+						/>
+					</ImageLayer>
+			   : null }
 			</ImageContainer>			
-			<span>CHANGE PHOTO</span>
+			{layOver ? <span>CHANGE PHOTO</span> : null}
 		</ImageUploaderContainer>					
 	)
 }

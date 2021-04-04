@@ -13,15 +13,18 @@ const ButtonContainer = styled.div`
 			text-align: center;
 			letter-spacing: -0.035em;
 			color: #FFFFFF;	
-			padding: 12px;	
+			padding: 12px;
+			outline: none;	
 		}
 `;
 
-function Button({ value, width = '100%'}) {
+function Button({ value, type , width = '100%', onClickHandler}) {
 	return (	
 		<ButtonContainer>
 			<button
-				style={{ width: width } }
+				type={ type !== undefined ? type : 'none' }
+				style={{ width: width }}
+				onClick={(typeof onClickHandler === 'function') ? () => onClickHandler() : null }
 			>{value}</button>
 		</ButtonContainer>					
 	)
