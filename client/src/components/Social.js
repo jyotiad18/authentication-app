@@ -48,7 +48,8 @@ function Social({ title, link }) {
 		const left = window.innerWidth / 2 - width / 2;
 		const top = window.innerHeight / 2 - height / 2;  		
     	let url;
-		if (process.env.NODE_ENV === 'production') {      
+		if (process.env.NODE_ENV === 'production') {  
+			url = `http://authenticate-dev-app.herokuapp.com/api/socalAuths/${e.target.alt}`;
 		} else {
 			url = `http://localhost:5600/api/socalAuths/${e.target.alt}`;
 		}		

@@ -40,7 +40,7 @@ module.exports = (passport) => {
 	passport.use(new FacebookStrategy({
 		clientID: process.env.FACEBOOK_CLIENT_ID,
 	    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-		callbackURL: 'https://authenticate-dev-app.herokuapp.com/api/socalAuths/facebook/callback',
+		callbackURL: 'http://authenticate-dev-app.herokuapp.com/api/socalAuths/facebook/callback',
 		profileFields: ['email', 'displayName', 'photos'],
 		passReqToCallback: true	
 	},
