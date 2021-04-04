@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const { Response } = require("../utils/Response");
+const { Response } = require("../utils/response");
 const validateLoginInput = require('../validation/auth');
 
 // @desc      Login user

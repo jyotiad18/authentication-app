@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const Profile = require('../models/Profile');
-const { Response } = require("../utils/Response");
+const { Response } = require("../utils/response");
 const validateUserInput = require('../validation/user');
 
 // @desc      Register user
