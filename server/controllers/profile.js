@@ -52,7 +52,7 @@ exports.updateProfile = async (req, res, next) => {
 // @desc      Post user Image
 // @route     POST /api/profiles/uploadimage
 // @access    Public
-exports.upload  = (req, res, next) => {	
+exports.upload = (req, res, next) => {	
 	const errors = {};
 	if (!req.files) {
 		errors.msg = 'Please upload a image';
@@ -64,7 +64,6 @@ exports.upload  = (req, res, next) => {
 		return next(Response(res, 422, null, errors));
 	}
 	file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, (err) => {
-		console.error(err);
 		if (err) {    
 			errors.msg = 'Problem with file upload';
 			return next(Response(res, 500, null, errors));			
